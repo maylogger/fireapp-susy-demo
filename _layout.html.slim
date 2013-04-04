@@ -1,0 +1,13 @@
+doctype 5
+html
+  head
+    title Slim Examples
+    = stylesheet_link_tag "all"
+    /[if IE]
+      = stylesheet_link_tag "ie"
+    = javascript_include_tag \
+      "//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js", \
+      "all"
+  body
+    .page= yield
+    = livereload_js

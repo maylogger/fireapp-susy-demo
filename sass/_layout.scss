@@ -1,0 +1,42 @@
+// 基本設定
+$total-columns  : 5; // 預設 5 欄
+$column-width   : 5em;
+$gutter-width   : 1em;
+$grid-padding   : $gutter-width;
+$ipad           : 641px 8;  // min-width 480px 超過 480px 後的寬度欄位
+$desktop        : 941px 15; // min-width 768px 超過 768px 後的寬度欄位
+
+// 設定大容器
+.page {
+  margin-top: 24px;
+  @include container($total-columns, $ipad, $desktop);
+  @include pie-clearfix;
+}
+
+// 做版面（舉例）
+.header {
+  br {
+    display: none;
+  }
+}
+
+@include at-breakpoint($ipad) {
+  .column {
+    @include span-columns(4);
+    @include nth-omega(2n);
+  }
+}
+
+@include at-breakpoint($desktop) {
+  .header {
+    br {
+      display: block;
+    }
+    @include span-columns(3);
+  }
+  .column {
+    @include remove-nth-omega(2n);
+    @include nth-omega;
+    @include span-columns(3);
+  }
+}

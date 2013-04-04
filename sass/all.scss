@@ -1,0 +1,28 @@
+// 設定 extension 參數
+$legacy-support-for-ie: false;;
+
+// 基本 extension 引入
+@import "compass";
+@import "susy";
+
+// CSS reset
+@import "normalize";
+@include normalize;
+
+// 設定基本文字高度
+@include establish-baseline;
+
+// 引入總布局
+@import "layout";
+@import "layout-debug";
+
+// 引入元件
+// @import "component/xxx"
+
+// 引入特殊頁面布局
+// @import "page/xxx"
+
+// 指定元素內的良好文字排版
+.page {
+  @import "typography";
+}
