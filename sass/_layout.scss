@@ -3,8 +3,8 @@ $total-columns  : 5; // 預設 5 欄
 $column-width   : 5em;
 $gutter-width   : 1em;
 $grid-padding   : $gutter-width;
-$ipad           : 641px 8;  // min-width 480px 超過 480px 後的寬度欄位
-$desktop        : 941px 15; // min-width 768px 超過 768px 後的寬度欄位
+$ipad           : 641px 8;  // min-width 641px 寬度超過 641px 後的欄位數量
+$desktop        : 941px 15; // min-width 941px 寬度超過 941px 後的欄位數量
 
 // 設定大容器
 .page {
