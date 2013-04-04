@@ -1,3 +1,5 @@
+/* debug background grid */
+
 body {
   @include baseline-grid-background(1.5em, rgba(#660, 0.2) );
 }

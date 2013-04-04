@@ -5,13 +5,17 @@ $legacy-support-for-ie: false;;
 @import "compass";
 @import "susy";
 
+
 // 設定基本字體與文字高度
 body { font-family: sans-serif; }
 @include establish-baseline;
 
+// 良好文字排版
+@import "typography";
+
+
 // 引入總布局
 @import "layout";
-@import "layout-debug";
+@import "layout-debug"; // 幫助排版的背景，可以拿掉
 
-// 指定元素內的良好文字排版
-.page { @import "typography"; }
+

@@ -1,9 +1,15 @@
-@mixin adjust-top( $font-size, $line-height: false ) {
+@mixin move-to-baseline( $font-size, $line-height: false, $top: false ) {
   position: relative;
   @if $line-height == false {
     $line-height: lines-for-font-size($font-size);
   }
-  top: ( 24px * $line-height - $font-size ) / 2;
+  $move: ( $base-line-height * $line-height - $font-size ) / 2;
+  @if $top == false {
+    top: $move;
+  } @else {
+    top: - $move;
+  }
+
 }
 
 // 設定 h1 – h6, p 邊界為 0
@@ -16,20 +22,25 @@ p {
 h1 {
   $font-size: 32px;
   @include adjust-font-size-to($font-size);
-  @include adjust-top($font-size);
+  @include trailer(1, $font-size);
+  @include move-to-baseline($font-size);
 }
 
 h2 {
   $font-size: 20px;
   @include adjust-font-size-to($font-size);
-  @include leader(1, $font-size);
   @include trailer(1, $font-size);
-  @include adjust-top($font-size);
+  @include move-to-baseline($font-size);
 }
 
+small {
+  display: block;
+}
+
+small,
 p {
   $font-size: 15px;
   @include adjust-font-size-to($font-size);
   @include trailer(1, $font-size);
-  @include adjust-top($font-size);
+  @include move-to-baseline($font-size);
 }
