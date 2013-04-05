@@ -1,6 +1,6 @@
 # Configuring Slim output style
 require 'slim'
-Slim::Engine.set_default_options :disable_escape => true, :format => :html5
+Slim::Engine.set_default_options :pretty => true, :disable_escape => true, :format => :html5
 
 # Require any additional compass plugins here.
 
@@ -25,5 +25,5 @@ line_comments = false
 preferred_syntax = :scss
 
 
-line_comments = false # by Fire.app 
-output_style = :nested # by Fire.app 
+line_comments = false # by Fire.app
+output_style = :nested # by Fire.app

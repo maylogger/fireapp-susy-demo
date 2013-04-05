@@ -7,7 +7,7 @@ $legacy-support-for-ie: false;
 
 
 // 設定基本字體與文字高度
-body { font-family: sans-serif; }
+body { font-family: sans-serif; vertical-align: baseline; }
 @include establish-baseline;
 
 // 良好文字排版
@@ -16,6 +16,5 @@ body { font-family: sans-serif; }
 
 // 引入總布局
 @import "layout";
-@import "layout-debug"; // 幫助排版的背景，可以拿掉
 
 

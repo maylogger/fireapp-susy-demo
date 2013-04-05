@@ -1,8 +1,7 @@
 /* debug background grid */
-
-body {
-  @include baseline-grid-background(1.5em, rgba(#660, 0.2) );
-}
+$grid-background-column-color: rgba(#f15a14,.2);
+$grid-background-baseline-color: rgba(#009a8e,.3);
+@include baseline-grid-background;
 
 .page {
   @include susy-grid-background;

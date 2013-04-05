@@ -6,22 +6,32 @@ $grid-padding   : 1em;
 
 // add media
 $ipad           : 641px 8;  // min-width 641px 寬度超過 641px 後的欄位數量
-$desktop        : 941px 15; // min-width 941px 寬度超過 941px 後的欄位數量
+$desktop        : 941px 12; // min-width 941px 寬度超過 941px 後的欄位數量
 
 // 設定大容器
+body {
+  background: #d9dfd1;
+  margin: 0;
+  padding: 0;
+}
 .page {
-  margin-top: 24px;
   @include container($total-columns, $ipad, $desktop);
   @include pie-clearfix;
 }
 
-// 做版面（舉例）
+// 做版面
+// 一般版（mobile first）
 .header {
+  @include padding-leader(1);
   h1 br {
     display: none;
   }
 }
+.columns {
+  @include leader(1);
+}
 
+// iPad 版本
 @include at-breakpoint($ipad) {
   .column {
     @include span-columns(4);
@@ -29,22 +39,25 @@ $desktop        : 941px 15; // min-width 941px 寬度超過 941px 後的欄位�
   }
 }
 
+// Desktop 版本
 @include at-breakpoint($desktop) {
   .header {
+    @include span-columns(3);
     h1 br {
       display: block;
     }
-    @include span-columns(3);
-    h1 {
-      @include move-to-baseline(32px, false, true);
-    }
   }
   .columns {
-    @include span-columns(12 omega);
+    @include span-columns(9 omega);
   }
   .column {
-    @include remove-nth-omega(2n);
-    @include span-columns(4, 12);
+    @include remove-nth-omega(2n, child ,9);
+    @include span-columns(3, 9);
     @include nth-omega(3n);
   }
+}
+
+// 幫助排版的背景，可以拿掉
+body:hover {
+  @import "layout-debug";
 }
