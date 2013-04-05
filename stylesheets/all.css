@@ -9,6 +9,14 @@ html {
   font-size: 16px;
   line-height: 1.5em; }
 
+a {
+  color: inherit;
+  text-decoration: inherit;
+  cursor: inherit;
+  color: #aa0000; }
+  a:active, a:focus {
+    outline: none; }
+
 h1, h2, h3, h4, h5, h6,
 p {
   margin: 0;
@@ -17,108 +25,107 @@ p {
 h1 {
   font-size: 1.5em;
   line-height: 1em;
-  margin-bottom: 1em;
   position: relative;
-  top: 3.888px; }
+  top: 0.162em;
+  margin-bottom: 1em; }
 
 h2 {
   font-size: 1.25em;
   line-height: 1.2em;
-  margin-bottom: 1.2em;
   position: relative;
-  top: 5.2px; }
+  top: 0.26em; }
 
 small {
   display: block;
   font-size: 0.75em;
   line-height: 2em;
-  margin-bottom: 2em;
   position: relative;
-  top: 7.872px;
+  top: 0.656em;
+  margin-bottom: 2em;
   opacity: .5; }
 
 p {
   color: #444;
   font-size: 0.9375em;
   line-height: 1.6em;
-  margin-bottom: 1.6em;
   position: relative;
-  top: 6.8625px; }
+  top: 0.4575em;
+  margin-bottom: 1.6em; }
 
 .header p {
   margin: 0; }
 
-.font-0 {
+.font-scale-0 {
   font-size: 0.6875em;
   line-height: 2.18182em;
   margin-bottom: 2.18182em;
   position: relative;
-  top: 8.2105px; }
-  .font-0:after {
-    content: " 11px"; }
+  top: 0.74641em; }
+  .font-scale-0:before {
+    content: "11px "; }
 
-.font-1 {
+.font-scale-1 {
   font-size: 0.75em;
   line-height: 2em;
   margin-bottom: 2em;
   position: relative;
-  top: 7.872px; }
-  .font-1:after {
-    content: " 12px"; }
+  top: 0.656em; }
+  .font-scale-1:before {
+    content: "12px "; }
 
-.font-2 {
+.font-scale-2 {
   font-size: 0.875em;
   line-height: 1.71429em;
   margin-bottom: 1.71429em;
   position: relative;
-  top: 7.198px; }
-  .font-2:after {
-    content: " 14px"; }
+  top: 0.51414em; }
+  .font-scale-2:before {
+    content: "14px "; }
 
-.font-3 {
+.font-scale-3 {
   font-size: 1em;
   line-height: 1.5em;
   margin-bottom: 1.5em;
   position: relative;
-  top: 6.528px; }
-  .font-3:after {
-    content: " 16px"; }
+  top: 0.408em; }
+  .font-scale-3:before {
+    content: "16px "; }
 
-.font-4 {
+.font-scale-4 {
   font-size: 1.125em;
   line-height: 1.33333em;
   margin-bottom: 1.33333em;
   position: relative;
-  top: 5.862px; }
-  .font-4:after {
-    content: " 18px"; }
+  top: 0.32567em; }
+  .font-scale-4:before {
+    content: "18px "; }
 
-.font-5 {
+.font-scale-5 {
   font-size: 1.5em;
   line-height: 2em;
   margin-bottom: 1em;
   position: relative;
-  top: 15.888px; }
-  .font-5:after {
-    content: " 24px"; }
+  top: 0.662em; }
+  .font-scale-5:before {
+    content: "24px "; }
 
-.font-6 {
+.font-scale-6 {
   font-size: 1.75em;
   line-height: 1.71429em;
   margin-bottom: 0.85714em;
   position: relative;
-  top: 14.592px; }
-  .font-6:after {
-    content: " 28px"; }
+  top: 0.52114em; }
+  .font-scale-6:before {
+    content: "28px "; }
 
-.font-7 {
+.font-scale-7 {
   font-size: 2em;
   line-height: 1.5em;
   margin-bottom: 0.75em;
   position: relative;
-  top: 13.312px; }
-  .font-7:after {
-    content: " 32px"; }
+  top: 0.416em; }
+  .font-scale-7:before {
+    content: "32px "; }
 
 body {
   background: #d9dfd1;
@@ -148,8 +155,6 @@ body {
 
 .header {
   padding-top: 1.5em; }
-  .header h1 br {
-    display: none; }
 
 .columns {
   margin-top: 1.5em; }
@@ -167,8 +172,12 @@ body {
     width: 23.52941%;
     float: left;
     margin-right: 1.96078%; }
-    .header h1 br {
-      display: block; }
+    .header [class^=font-scale-] {
+      white-space: nowrap;
+      overflow: hidden;
+      -ms-text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis; }
 
   .columns {
     width: 74.5098%;

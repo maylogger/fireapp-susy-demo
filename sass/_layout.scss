@@ -23,9 +23,6 @@ body {
 // 一般版（mobile first）
 .header {
   @include padding-leader(1);
-  h1 br {
-    display: none;
-  }
 }
 .columns {
   @include leader(1);
@@ -43,8 +40,8 @@ body {
 @include at-breakpoint($desktop) {
   .header {
     @include span-columns(3);
-    h1 br {
-      display: block;
+    [class^=font-scale-] {
+      @include ellipsis;
     }
   }
   .columns {

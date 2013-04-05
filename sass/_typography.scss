@@ -1,14 +1,8 @@
-@mixin move-to-baseline( $font-size, $line: false, $top: false ) {
-  position: relative;
-  @if $line == false {
-    $line: lines-for-font-size($font-size);
-  }
-  $move: ( $base-line-height * $line - $font-size * ( 0.7 - $font-size / 1000px ) ) / 2 ;
-  @if $top == top {
-    top: - $move;
-  } @else {
-    top: $move;
-  }
+@import "baseline";
+
+a {
+  @include unstyled-link;
+  @include link-colors(#a00);
 }
 
 // 設定 h1 – h6, p 邊界為 0
@@ -20,33 +14,28 @@ p {
 
 h1 {
   $font-size: 24px;
-  @include adjust-font-size-to($font-size, 1);
+  @include baseline-font-size($font-size, 1);
   @include trailer(1, $font-size);
-  @include move-to-baseline($font-size, 1);
 }
 
 h2 {
   $font-size: 20px;
-  @include adjust-font-size-to($font-size);
-  @include trailer(1, $font-size);
-  @include move-to-baseline($font-size);
+  @include baseline-font-size($font-size);
 }
 
 small {
   display: block;
   $font-size: 12px;
-  @include adjust-font-size-to($font-size);
+  @include baseline-font-size($font-size);
   @include trailer(1, $font-size);
-  @include move-to-baseline($font-size);
   opacity: .5;
 }
 
 p {
   color: #444;
   $font-size: 15px;
-  @include adjust-font-size-to($font-size);
+  @include baseline-font-size($font-size);
   @include trailer(1, $font-size);
-  @include move-to-baseline($font-size);
 }
 
 .header p {
@@ -55,12 +44,12 @@ p {
 
 $i: 0;
 @each $font-size in 11px, 12px, 14px, 16px, 18px, 24px, 28px, 32px {
-  .font-#{$i} {
+  .font-scale-#{$i} {
     @include adjust-font-size-to($font-size);
     @include trailer(1, $font-size);
     @include move-to-baseline($font-size);
-    &:after {
-      content: " #{$font-size}";
+    &:before {
+      content: "#{$font-size} ";
     }
   }
   $i: $i + 1;
